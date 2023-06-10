@@ -1,58 +1,90 @@
-<div style="position: relative; width: 720px; height: 1312px;">
+<!DOCTYPE html>
 
-  <iframe id="my-iframe" src="https://cloudphoneh5.buy.139.com/?channelSrc=02008" style="width: 100%; height: 100%; border: none;"></iframe>
+<html>
 
-  <button id="rotate-btn" class="rotate-btn">旋转</button>
+<head>
 
-</div>
+	<title>移动云手机</title>
 
-<style>
+	<style>
 
-  .rotate-btn {
+		iframe {
 
-    position: absolute;
+			border: none;
 
-    top: 20px;
+			display: block;
 
-    left: 20px;
+			margin: 0 auto;
 
-    padding: 10px;
+			transform-origin: center center;
 
-    background-color: #007bff;
+			transition: transform 0.3s ease-in-out;
 
-    color: #fff;
+		}
 
-    border: none;
+		button {
 
-    border-radius: 5px;
+			margin-top: 20px;
 
-    font-size: 16px;
+			padding: 10px 20px;
 
-    cursor: pointer;
+			background-color: #007bff;
 
-  }
+			color: #fff;
 
-  .rotate-btn:hover {
+			border: none;
 
-    background-color: #0056b3;
+			border-radius: 5px;
 
-  }
+			cursor: pointer;
 
-</style>
+		}
 
-<script>
+	</style>
 
-var iframeRotationAngle = 0;
+</head>
 
-document.getElementById('rotate-btn').addEventListener('click', function() {
+<body>
 
-var iframe = document.getElementById('my-iframe');
+	<button id="rotateBtn">旋转</button>
 
-iframeRotationAngle += 90;
+	<iframe id="myIframe" src="https://cloudphoneh5.buy.139.com/?channelSrc=02008" style="width:720px;height:1312px"></iframe>
 
-iframe.style.transform = 'rotate(' + iframeRotationAngle + 'deg)';
+	<script>
 
-});
+		var rotateBtn = document.getElementById("rotateBtn");
 
-</script>
+		var myIframe = document.getElementById("myIframe");
+
+		var rotateCount = 0;
+
+		rotateBtn.addEventListener("click", function() {
+
+			rotateCount++;
+
+			if (rotateCount % 4 === 1) {
+
+				myIframe.style.transform = "rotate(90deg)";
+
+			} else if (rotateCount % 4 === 2) {
+
+				myIframe.style.transform = "rotate(180deg)";
+
+			} else if (rotateCount % 4 === 3) {
+
+				myIframe.style.transform = "rotate(270deg)";
+
+			} else {
+
+				myIframe.style.transform = "rotate(0deg)";
+
+			}
+
+		});
+
+	</script>
+
+</body>
+
+</html>
 
