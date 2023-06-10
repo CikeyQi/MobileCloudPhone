@@ -4,7 +4,7 @@
 
 <head>
 
-	<title>移动云手机</title>
+	<title>嵌入网页旋转</title>
 
 	<style>
 
@@ -40,6 +40,66 @@
 
 		}
 
+		#popup {
+
+			position: fixed;
+
+			top: 50%;
+
+			left: 50%;
+
+			transform: translate(-50%, -50%);
+
+			padding: 20px;
+
+			background-color: #fff;
+
+			border: 1px solid #ccc;
+
+			border-radius: 5px;
+
+			box-shadow: 0 0 10px rgba(0,0,0,.3);
+
+			z-index: 9999;
+
+			display: none;
+
+		}
+
+		#popup h1 {
+
+			font-size: 24px;
+
+			margin: 0 0 10px;
+
+		}
+
+		#popup p {
+
+			font-size: 18px;
+
+			margin: 0;
+
+		}
+
+		#popup button {
+
+			margin-top: 20px;
+
+			padding: 10px 20px;
+
+			background-color: #007bff;
+
+			color: #fff;
+
+			border: none;
+
+			border-radius: 5px;
+
+			cursor: pointer;
+
+		}
+
 	</style>
 
 </head>
@@ -49,6 +109,16 @@
 	<button id="rotateBtn">旋转</button>
 
 	<iframe id="myIframe" src="https://cloudphoneh5.buy.139.com/?channelSrc=02008" style="width:720px;height:1312px"></iframe>
+
+	<div id="popup">
+
+		<h1>使用前须知</h1>
+
+		<p>      目前移动云手机无法直接修改云机分辨率，强制修改会导致触控错位，在本网页登录后分辨率会自动设置为720*1280。若您使用手机APP或官网登录云机均会导致已设置的分辨率复原，为保证分辨率不被复原，请使用本网站登录云机。\n——0卡苏打水（3146312184</p>
+
+		<button id="closeBtn">我已知晓</button>
+
+	</div>
 
 	<script>
 
@@ -79,6 +149,22 @@
 				myIframe.style.transform = "rotate(0deg)";
 
 			}
+
+		});
+
+		var popup = document.getElementById("popup");
+
+		var closeBtn = document.getElementById("closeBtn");
+
+		window.onload = function() {
+
+			popup.style.display = "block";
+
+		}
+
+		closeBtn.addEventListener("click", function() {
+
+			popup.style.display = "none";
 
 		});
 
