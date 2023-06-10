@@ -42,27 +42,17 @@
 
 <script>
 
-  var isIframeRotated = false;
+var iframeRotationAngle = 0;
 
-  document.getElementById('rotate-btn').addEventListener('click', function() {
+document.getElementById('rotate-btn').addEventListener('click', function() {
 
-    var iframe = document.getElementById('my-iframe');
+var iframe = document.getElementById('my-iframe');
 
-    if (!isIframeRotated) {
+iframeRotationAngle += 90;
 
-      iframe.style.transform = 'rotate(90deg)';
+iframe.style.transform = 'rotate(' + iframeRotationAngle + 'deg)';
 
-      isIframeRotated = true;
-
-    } else {
-
-      iframe.style.transform = 'none';
-
-      isIframeRotated = false;
-
-    }
-
-  });
+});
 
 </script>
 
