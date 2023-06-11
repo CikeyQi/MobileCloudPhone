@@ -227,10 +227,10 @@
 				popup.style.display = "none";
 
 				popup.classList.remove("popupFadeOut"); // 移除动画类名
-
+				
+				myIframe.style.pointerEvents = "auto"; // 恢复操作内嵌网页
+				
 			}, 300); // 延迟0.3秒关闭弹窗
-
-			myIframe.style.pointerEvents = "auto"; // 恢复操作内嵌网页
 
 		});
 
