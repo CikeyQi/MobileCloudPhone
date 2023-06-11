@@ -64,6 +64,8 @@
 
 			display: none;
 
+			animation: popupFadeIn 0.3s ease-in-out; /* 添加动画效果 */
+
 		}
 
 		#popup h1 {
@@ -101,6 +103,52 @@
 			border-radius: 5px;
 
 			cursor: pointer;
+
+		}
+
+		.popupFadeOut { /* 添加弹出动画类名 */
+
+			animation: popupFadeOut 0.3s ease-in-out;
+
+		}
+
+		@keyframes popupFadeIn {
+
+			from {
+
+				opacity: 0;
+
+				transform: translate(-50%, -55%);
+
+			}
+
+			to {
+
+				opacity: 1;
+
+				transform: translate(-50%, -50%);
+
+			}
+
+		}
+
+		@keyframes popupFadeOut {
+
+			from {
+
+				opacity: 1;
+
+				transform: translate(-50%, -50%);
+
+			}
+
+			to {
+
+				opacity: 0;
+
+				transform: translate(-50%, -45%);
+
+			}
 
 		}
 
@@ -162,13 +210,33 @@
 
 		window.onload = function() {
 
-			popup.style.display = "block";
+			setTimeout(function(){
+
+				popup.style.display = "block";
+
+			}, 1000); // 延迟1秒显示弹窗
 
 		}
 
 		closeBtn.addEventListener("click", function() {
 
-			popup.style.display = "none";
+			popup.classList.add("popupFadeOut"); // 添加动画类名
+
+			setTimeout(function(){
+
+				popup.style.display = "none";
+
+				popup.classList.remove("popupFadeOut"); // 移除动画类名
+
+			}, 300); // 延迟0.3秒关闭弹窗
+
+			myIframe.style.pointerEvents = "auto"; // 恢复操作内嵌网页
+
+		});
+
+		popup.addEventListener("click", function() {
+
+			myIframe.style.pointerEvents = "none"; // 禁止操作内嵌网页
 
 		});
 
